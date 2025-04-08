@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sweet Delights Cake Shop</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2540/2540617.png" type="image/png">
+  <style>
+    :root {
+      --main-color: #ff69b4;
+      --accent-color: #fff0f5;
+      --dark-color: #8b008b;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Comic Sans MS', cursive;
+    }
+
+    body {
+      background: linear-gradient(to right, #ffe4e1, #fff5f5);
+      color: #333;
+    }
+
+    header {
+      background-color: var(--main-color);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background: var(--dark-color);
+      display: flex;
+      justify-content: center;
+    }
+
+    nav a {
+      color: white;
+      padding: 15px 20px;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      background-color: var(--main-color);
+    }
+
+    section {
+      padding: 40px 20px;
+    }
+
+    .cakes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .cake {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .cake img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    footer {
+      background: var(--dark-color);
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    form {
+      background: var(--accent-color);
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    input, textarea, select, button {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      background: var(--main-color);
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: var(--dark-color);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Sweet Delights Cake Shop</h1>
+    <p>Baking happiness, one cake at a time!</p>
+  </header>
+
+  <nav>
+    <a href="#cakes">Cakes</a>
+    <a href="#order">Order</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="cakes">
+    <h2>Our Cakes</h2>
+    <div class="cakes">
+      <div class="cake">
+        <img src="https://images.unsplash.com/photo-1603052875527-50396e14ca98" alt="Chocolate Cake">
+        <h3>Chocolate Fantasy</h3>
+        <p>Rich and moist chocolate cake with ganache frosting.</p>
+      </div>
+      <div class="cake">
+        <img src="https://images.unsplash.com/photo-1615193497642-1744e3e9cefd" alt="Vanilla Cake">
+        <h3>Vanilla Dream</h3>
+        <p>Classic vanilla cake with buttercream swirls.</p>
+      </div>
+      <div class="cake">
+        <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb" alt="Red Velvet Cake">
+        <h3>Red Velvet Love</h3>
+        <p>Velvety smooth with a hint of cocoa and creamy frosting.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="order">
+    <h2>Place Your Order</h2>
+    <form onsubmit="return submitForm(event)">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="cake">Select Cake:</label>
+      <select id="cake" name="cake">
+        <option>Chocolate Fantasy</option>
+        <option>Vanilla Dream</option>
+        <option>Red Velvet Love</option>
+      </select>
+
+      <label for="message">Special Message:</label>
+      <textarea id="message" name="message" rows="3"></textarea>
+
+      <button type="submit">Order Now</button>
+    </form>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:info@sweetdelights.com">info@sweetdelights.com</a></p>
+    <p>Phone: <a href="tel:+1234567890">+1 234 567 890</a></p>
+    <iframe src="https://maps.google.com/maps?q=bakery&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="300" style="border:0;"></iframe>
+  </section>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Sweet Delights Cake Shop. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Add current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Handle form submission
+    function submitForm(event) {
+      event.preventDefault();
+      const name = document.getElementById("name").value;
+      const cake = document.getElementById("cake").value;
+      alert(`Thank you, ${name}! Your order for ${cake} has been placed.`);
+      return false;
+    }
+  </script>
+</body>
+</html>
